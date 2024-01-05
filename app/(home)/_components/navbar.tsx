@@ -1,9 +1,10 @@
 import Link from "next/link";
 
+import { logOut } from "@/action/auth/authAction";
+import { auth } from "@/auth";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { LogIn, LogOut } from "lucide-react";
-import { auth } from "@/auth";
 
 export const Navbar = async () => {
   const user = await auth();
@@ -13,20 +14,26 @@ export const Navbar = async () => {
       <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between">
         <Logo />
         <div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full">
-          <Button size="sm" variant="outline" asChild>
-            {user ? <Link href="/emails">
-              <LogIn className="mr-2 h-4 w-4" />
-              Emails
-            </Link>
+          <form action={logOut}>
+            {user ?
+              <>
+                <Button size="sm" variant="outline" asChild>
+                  <Link href="/emails">
+                    <LogIn className="mr-2 h-4 w-4" />Emails
+                  </Link>
+                </Button>
+                <Button size="sm" type="submit" className="ml-2">
+                  <LogOut className="mr-2 h-4 w-4" /> Sign Out
+                </Button>
+              </>
               :
-              <Link href="/login">
-                <LogIn className="mr-2 h-4 w-4" />
-                Sign In
-              </Link>}
-          </Button>
-          {/* <Button size="sm" type="submit">
-              <LogOut className="mr-2 h-4 w-4" /> Sign Out
-            </Button> */}
+              <Button size="sm" variant="outline" asChild>
+                <Link href="/login">
+                  <LogIn className="mr-2 h-4 w-4" /> Sign In
+                </Link>
+              </Button>
+            }
+          </form>
         </div>
       </div>
     </div>

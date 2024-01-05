@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { toast } from "sonner"
 
 export const formSchema = z.object({
   email: z.string().email(),
@@ -36,10 +37,10 @@ export default function LoginForm() {
 
   // 2. Define a submit handler.
   async function onSubmit(values: FormData) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
-    await Login(values);
+    let isLogin = await Login(values);
+    if (isLogin) {
+      toast(isLogin)
+    }
   }
 
   return (

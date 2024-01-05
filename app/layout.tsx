@@ -5,6 +5,7 @@ import '@radix-ui/themes/styles.css';
 import { Theme, ThemePanel } from '@radix-ui/themes';
 
 import { siteConfig } from '@/config/site'
+import { Toaster } from '@/components/ui/sonner';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -36,6 +37,7 @@ export default function RootLayout({
         <Theme appearance="light" grayColor="sand" radius="large" scaling="95%">
           {children}
           {/* <ThemePanel /> */}
+          <Toaster />
         </Theme>
       </body>
     </html>
