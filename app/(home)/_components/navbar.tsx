@@ -14,10 +14,15 @@ export const Navbar = async () => {
         <Logo />
         <div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full">
           <Button size="sm" variant="outline" asChild>
-            <Link href="/login">
+            {user ? <Link href="/emails">
               <LogIn className="mr-2 h-4 w-4" />
-              {user ? 'Board' : 'Sign In'}
+              Emails
             </Link>
+              :
+              <Link href="/login">
+                <LogIn className="mr-2 h-4 w-4" />
+                Sign In
+              </Link>}
           </Button>
           {/* <Button size="sm" type="submit">
               <LogOut className="mr-2 h-4 w-4" /> Sign Out
