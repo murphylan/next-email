@@ -6,7 +6,6 @@ import bcrypt from 'bcrypt';
 import { db } from '@/lib/db';
 import { User } from '@prisma/client';
 
-
 export async function getUser(email: string): Promise<User | undefined> {
   try {
     const user = await db.user.findUnique({

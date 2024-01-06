@@ -55,7 +55,7 @@ const HomePage = async () => {
       </div>
       {user ?
         <Button className="mt-6" size="lg" asChild>
-          <Link href="/emails">
+          <Link href="/welcome">
             邀请你来体验
           </Link>
         </Button>

@@ -1115,7 +1115,7 @@
   resolved "https://registry.npmjs.org/@react-email/preview/-/preview-0.0.7.tgz"
   integrity sha512-YLfIwHdexPi8IgP1pSuVXdAmKzMQ8ctCCLEjkMttT2vkSFqT6m/e6UFWK2l30rKm2dDsLvQyEvo923mPXjnNzg==
 
-"@react-email/render@0.0.10":
+"@react-email/render@^0.0.10", "@react-email/render@0.0.10":
   version "0.0.10"
   resolved "https://registry.npmjs.org/@react-email/render/-/render-0.0.10.tgz"
   integrity sha512-FdLhg/E5PH5qZU/jf9NbvRi5v5134kbX7o8zIhOJIk/TALxB18ggprnH5tQX96dGQFqlLob8OLReaRwrpEF7YA==

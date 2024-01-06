@@ -18,7 +18,7 @@ export const Navbar = async () => {
             {user ?
               <>
                 <Button size="sm" variant="outline" asChild>
-                  <Link href="/emails">
+                  <Link href="/welcome">
                     <LogIn className="mr-2 h-4 w-4" />Emails
                   </Link>
                 </Button>
