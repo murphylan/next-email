@@ -5,6 +5,7 @@ import { Medal } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { auth } from "@/auth";
 
 const headingFont = localFont({
   src: "../../public/fonts/font.woff2"
@@ -25,7 +26,10 @@ const textFont = Poppins({
   ],
 });
 
-const MarketingPage = () => {
+const HomePage = async () => {
+
+  const user = await auth();
+
   return (
     <div className="flex items-center justify-center flex-col">
       <div className={cn(
@@ -49,13 +53,22 @@ const MarketingPage = () => {
       )}>
         协作、项目管理，助力团队提升工作效率。无论是办公室还是远程办公，你的团队工作方式独一无二，Email助你一网打尽，完成所有目标。
       </div>
-      <Button className="mt-6" size="lg" asChild>
-        <Link href="/emails">
-          邀请你来体验
-        </Link>
-      </Button>
+      {user ?
+        <Button className="mt-6" size="lg" asChild>
+          <Link href="/emails">
+            邀请你来体验
+          </Link>
+        </Button>
+        :
+        <Button className="mt-6" size="lg" asChild>
+          <Link href="/login">
+            邀请你来体验，请先登陆
+          </Link>
+        </Button>
+      }
+
     </div>
   );
 };
 
-export default MarketingPage;
+export default HomePage;
