@@ -44,18 +44,18 @@ const HomePage = async () => {
           Email 让团队工作更高效、
         </h1>
         <div className="text-3xl md:text-6xl bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white px-4 p-2 rounded-md pb-4 w-fit">
-          更顺畅
+          内容布局自适应
         </div>
       </div>
       <div className={cn(
         "text-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto",
         textFont.className,
       )}>
-        协作、项目管理，助力团队提升工作效率。无论是办公室还是远程办公，你的团队工作方式独一无二，Email助你一网打尽，完成所有目标。
+        Academy将团队内部邮件功能进行扩展，帮助公司内各部门提高邮件质量，结合自身技术打造的一套发送智能邮件服务业务。秉承技术创新、客户为要的原则，Academy团队愿意协助各部门完成邮件业务数字化转型，实现邮件智能化。
       </div>
       {user ?
         <Button className="mt-6" size="lg" asChild>
-          <Link href="/welcome">
+          <Link href="/send">
             邀请你来体验
           </Link>
         </Button>
