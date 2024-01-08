@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 import { Playlist } from "../data/playlists"
+import Link from "next/link";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   playlists: Playlist[]
@@ -94,7 +95,9 @@ export function Sidebar({ className, playlists }: SidebarProps) {
                 <path d="M16 6H3" />
                 <path d="M12 18H3" />
               </svg>
-              Playlists
+              <Link href="/send">
+                Mails
+              </Link>
             </Button>
             <Button variant="ghost" className="w-full justify-start">
               <svg
@@ -110,7 +113,9 @@ export function Sidebar({ className, playlists }: SidebarProps) {
                 <circle cx="8" cy="18" r="4" />
                 <path d="M12 18V2l7 4" />
               </svg>
-              Songs
+              <Link href="/music">
+                Songs
+              </Link>
             </Button>
             <Button variant="ghost" className="w-full justify-start">
               <svg
