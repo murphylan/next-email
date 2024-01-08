@@ -1,4 +1,3 @@
-import { auth } from "@/auth";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,13 +5,10 @@ export const metadata: Metadata = {
   description: "Example mail app using the components.",
 }
 
-const MailPage = async () => {
-
-  const user = await auth();
-
+const MailPage = () => {
   return (
     <>
-      {user ? user.user?.name : MailPage}
+      MailPage
     </>
   )
 }
