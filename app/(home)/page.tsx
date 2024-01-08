@@ -6,6 +6,10 @@ import { Medal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/auth";
+import { Separator } from "@/components/ui/separator";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { AlbumArtwork } from "../(platform)/music/_components/album-artwork";
+import { madeForYouAlbums } from "../(platform)/music/data/albums";
 
 const headingFont = localFont({
   src: "../../public/fonts/font.woff2"
@@ -53,20 +57,45 @@ const HomePage = async () => {
       )}>
         Academy将团队内部邮件功能进行扩展，帮助公司内各部门提高邮件质量，结合自身技术打造的一套发送智能邮件服务业务。秉承技术创新、客户为要的原则，Academy团队愿意协助各部门完成邮件业务数字化转型，实现邮件智能化。
       </div>
-      {user ?
-        <Button className="mt-6" size="lg" asChild>
-          <Link href="/send">
-            邀请你来体验
-          </Link>
-        </Button>
-        :
-        <Button className="mt-6" size="lg" asChild>
-          <Link href="/login">
-            邀请你来体验，请先登陆
-          </Link>
-        </Button>
-      }
 
+      <span className="font-bold text-4xl">
+        {user ?
+          <Button className="mt-1" size="lg" asChild>
+            <Link href="/send">
+              邀请你来体验
+            </Link>
+          </Button>
+          :
+          <Button className="mt-1" size="lg" asChild>
+            <Link href="/login">
+              邀请你来体验，请先登陆
+            </Link>
+          </Button>
+        }
+      </span>
+      {/* <div className="border-dashed border border-zinc-500 w-full h-12 rounded-lg text-center">
+
+      </div> */}
+      <Separator className="my-4" />
+      <div className="border-zinc-500 w-full h-64 rounded-lg flex items-center justify-center">
+        <div className="relative">
+          <ScrollArea>
+            <div className="flex space-x-4 pb-4">
+              {madeForYouAlbums.map((album) => (
+                <AlbumArtwork
+                  key={album.name}
+                  album={album}
+                  className="w-[150px]"
+                  aspectRatio="square"
+                  width={150}
+                  height={150}
+                />
+              ))}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+        </div>
+      </div>
     </div>
   );
 };
