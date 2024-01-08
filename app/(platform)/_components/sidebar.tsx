@@ -1,15 +1,22 @@
+"use client";
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 import { Playlist } from "../data/playlists"
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   playlists: Playlist[]
 }
 
 export function Sidebar({ className, playlists }: SidebarProps) {
+
+  const router = useRouter();
+  const pathname = usePathname();
+
   return (
     <div className={cn("pb-12", className)}>
       <div className="space-y-4 py-4">
@@ -18,7 +25,7 @@ export function Sidebar({ className, playlists }: SidebarProps) {
             Discover
           </h2>
           <div className="space-y-1">
-            <Button variant="secondary" className="w-full justify-start">
+            <Button variant="ghost" className="w-full justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -34,7 +41,10 @@ export function Sidebar({ className, playlists }: SidebarProps) {
               </svg>
               Listen Now
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className={cn(
+              "w-full justify-start",
+              "/dashboard" === pathname && "bg-sky-500/10 text-sky-700"
+            )}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -50,7 +60,9 @@ export function Sidebar({ className, playlists }: SidebarProps) {
                 <rect width="7" height="7" x="14" y="14" rx="1" />
                 <rect width="7" height="7" x="3" y="14" rx="1" />
               </svg>
-              Browse
+              <Link href="/dashboard">
+                Dashboard
+              </Link>
             </Button>
             <Button variant="ghost" className="w-full justify-start">
               <svg
@@ -78,7 +90,10 @@ export function Sidebar({ className, playlists }: SidebarProps) {
             Library
           </h2>
           <div className="space-y-1">
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className={cn(
+              "w-full justify-start",
+              "/send" === pathname && "bg-sky-500/10 text-sky-700"
+            )}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -99,7 +114,10 @@ export function Sidebar({ className, playlists }: SidebarProps) {
                 Mails
               </Link>
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className={cn(
+              "w-full justify-start",
+              "/music" === pathname && "bg-sky-500/10 text-sky-700"
+            )}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

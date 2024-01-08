@@ -14,6 +14,7 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import Link from "next/link"
 
 export function Menu() {
   return (
@@ -35,7 +36,7 @@ export function Menu() {
           </MenubarItem>
           <MenubarShortcut />
           <MenubarItem>
-            Quit Music <MenubarShortcut>⌘Q</MenubarShortcut>
+            <Link href="/">Quit Music</Link> <MenubarShortcut>⌘Q</MenubarShortcut>
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
