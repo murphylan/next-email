@@ -135,7 +135,10 @@ export function Sidebar({ className, playlists }: SidebarProps) {
                 Songs
               </Link>
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className={cn(
+              "w-full justify-start",
+              "/user" === pathname && "bg-sky-500/10 text-sky-700"
+            )}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -149,7 +152,9 @@ export function Sidebar({ className, playlists }: SidebarProps) {
                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
               </svg>
-              Made for You
+              <Link href="/user">
+                Users
+              </Link>
             </Button>
             <Button variant="ghost" className="w-full justify-start">
               <svg
