@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
+import { sendMail } from "@/action/send/sendMail"
 
 const profileFormSchema = z.object({
   username: z
@@ -74,7 +75,15 @@ export function ProfileForm() {
     control: form.control,
   })
 
-  function onSubmit(data: ProfileFormValues) {
+  async function onSubmit(data: ProfileFormValues) {
+    // let d = {
+    //   "email": "lanzejun@cn.ibm.com",
+    //   "name": "Murphy"
+    // }
+    const retult = await sendMail(data);
+    if (retult) {
+      console.log("error");
+    }
     toast("You submitted the following values:", {
       description: <pre className="mt-2 w-[280px] rounded-md bg-slate-950 p-4">
         <code className="text-white">{JSON.stringify(data, null, 2)}</code>
