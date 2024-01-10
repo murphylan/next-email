@@ -1,6 +1,6 @@
 'use server';
 
-import SubscribeEmail from "@/app/emails/subscribe";
+import NoticeEmail from "@/app/emails/notice";
 import nodemailer from 'nodemailer';
 
 // Create a Nodemailer transporter
@@ -13,17 +13,15 @@ const transporter = nodemailer.createTransport({
 export async function sendMail(data: any) {
   // const { name, email } = await request;
 
-  const { name, email } = {
-    "name": "Murphy",
+  const { username, email } = {
+    "username": "Murphy",
     "email": "lanzejun@cn.ibm.com"
   }
-  console.log({ name, email });
 
   try {
     const { renderToString } = await import('react-dom/server');
-    const htmlString = renderToString(SubscribeEmail({
-      name,
-      email
+    const htmlString = renderToString(NoticeEmail({
+      username,
     }));
 
     const mailOptions = {

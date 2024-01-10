@@ -1188,7 +1188,7 @@
   resolved "https://registry.npmjs.org/@react-email/column/-/column-0.0.8.tgz"
   integrity sha512-blChqGU8e/L6KZiB5EPww8bkZfdyHDuS0vKIvU+iS14uK+xfAw+5P5CU9BYXccEuJh2Gftfngu1bWMFp2Sc6ag==
 
-"@react-email/components@^0.0.12":
+"@react-email/components@0.0.12":
   version "0.0.12"
   resolved "https://registry.npmjs.org/@react-email/components/-/components-0.0.12.tgz"
   integrity sha512-siVu1xcMV3u14aBIIMWQKVma/EC9TitRYf9tOL1bNXhMFtJhY4ozBudF0Lk4Gm5p8Dn9ZeitoenKiJ5XiVXrdg==
