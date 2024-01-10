@@ -4,7 +4,7 @@ import { logOut } from "@/action/auth/authAction";
 import { auth } from "@/auth";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { LogIn, LogOut } from "lucide-react";
+import { LayoutDashboard, LogIn, LogOut } from "lucide-react";
 
 export const Navbar = async () => {
   const user = await auth();
@@ -18,8 +18,8 @@ export const Navbar = async () => {
             {user ?
               <>
                 <Button size="sm" variant="outline" asChild>
-                  <Link href="/send">
-                    <LogIn className="mr-2 h-4 w-4" />Emails
+                  <Link href="/dashboard">
+                    <LayoutDashboard className="mr-2 h-4 w-4" />Dashboard
                   </Link>
                 </Button>
                 <Button size="sm" type="submit" className="ml-2">
