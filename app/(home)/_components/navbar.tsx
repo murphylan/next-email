@@ -4,7 +4,8 @@ import { logOut } from "@/action/auth/authAction";
 import { auth } from "@/auth";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, LogIn, LogOut } from "lucide-react";
+import { LogIn } from "lucide-react";
+import { UserNav } from "./user-nav";
 
 export const Navbar = async () => {
   const user = await auth();
@@ -16,16 +17,7 @@ export const Navbar = async () => {
         <div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full">
           <form action={logOut}>
             {user ?
-              <>
-                <Button size="sm" variant="outline" asChild>
-                  <Link href="/dashboard">
-                    <LayoutDashboard className="mr-2 h-4 w-4" />Dashboard
-                  </Link>
-                </Button>
-                <Button size="sm" type="submit" className="ml-2">
-                  <LogOut className="mr-2 h-4 w-4" /> Sign Out
-                </Button>
-              </>
+              <UserNav username={user!.user?.name!} email={user!.user?.email!} />
               :
               <Button size="sm" variant="outline" asChild>
                 <Link href="/login">
