@@ -14,7 +14,7 @@ interface SubscribeEmailProps {
   email?: string;
 }
 
-export const SubscribeEmail = ({ name, email }: SubscribeEmailProps) => {
+export const SubscribeEmail = ({ name = 'Murphy', email = 'lanzejun@cn.ibm.com' }: SubscribeEmailProps) => {
   return (
     <Html>
       <Head />

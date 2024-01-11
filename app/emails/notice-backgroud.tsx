@@ -24,7 +24,7 @@ const baseUrl = process.env.VERCEL_URL
 
 export const NoticeWithBackgroudEmail = ({
   username = 'Murphy',
-  userImage = `https://lp2.email.ibm.com/rs/298-RSE-650/images/IBM_logo.png`,
+  userImage = `http://localhost:3001/ibmlogo.png`,
   invitedByUsername = 'Wholesale',
 }: NoticeEmailProps) => {
   const previewText = `Join ${invitedByUsername} on Academy`;
@@ -37,18 +37,20 @@ export const NoticeWithBackgroudEmail = ({
         <Body className="bg-[#e0e0e0] my-auto mx-auto font-sans">
           <Container className="bg-white rounded my-[40px] mx-auto  w-[600px]">
             <Section>
-              <div className="flex justify-between items-center w-full py-0 bg-gray-100">
-                <Text className="text-1xl font-semibold px-1">WW Academy</Text>
-                <Img
-                  alt="IBM"
-                  src={userImage}
-                  className="max-w-43 px-1"
-                  width="43"
-                />
-              </div>
-              <div className="p-8 bg-gray-600 text-3xl leading-10 text-white">
-                <span>IBM App Connect Enterprise 培训</span><br /><br />
-                <span className="font-semibold text-2xl leading-15">（202204期）ACE 录取通知书</span>
+              <div className="bg-cover bg-center" style={{ backgroundImage: 'url("https://www.sc.pages02.net/lp/33108/441160/infrastructure-600.png")' }}>
+                <div className="flex justify-between items-center w-full py-0 bg-transparent">
+                  <Text className="text-1xl font-semibold px-1 text-white">WW Academy</Text>
+                  <Img
+                    alt="IBM"
+                    src={userImage}
+                    className="max-w-43 px-1"
+                    width="43"
+                  />
+                </div>
+                <div className="p-8 text-3xl leading-10 text-white">
+                  <span>IBM App Connect Enterprise 培训</span><br /><br />
+                  <span className="font-semibold text-2xl leading-15">（202204期）ACE 录取通知书</span>
+                </div>
               </div>
             </Section>
             <Section className="px-6">
