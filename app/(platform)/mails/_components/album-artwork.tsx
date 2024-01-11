@@ -1,7 +1,6 @@
-import Image from "next/image"
 import { PlusCircledIcon } from "@radix-ui/react-icons"
+import Image from "next/image"
 
-import { cn } from "@/lib/utils"
 import {
   ContextMenu,
   ContextMenuContent,
@@ -12,9 +11,21 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
+import { cn } from "@/lib/utils"
 
-import { Album } from "../data/albums"
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from "@/components/ui/dialog"
+
 import { playlists } from "../../data/playlists"
+import { Album } from "../data/albums"
+import SendMailForm from "./send-mail-form"
 
 interface AlbumArtworkProps extends React.HTMLAttributes<HTMLDivElement> {
   album: Album
@@ -90,6 +101,20 @@ export function AlbumArtwork({
         <h3 className="font-medium leading-none">{album.name}</h3>
         <p className="text-xs text-muted-foreground">{album.artist}</p>
       </div>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline">Send Email</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Edit profile</DialogTitle>
+            <DialogDescription>
+              Make changes to your profile here. Click save when you're done.
+            </DialogDescription>
+          </DialogHeader>
+          <SendMailForm />
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
