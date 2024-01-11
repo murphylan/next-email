@@ -11,12 +11,12 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendMail(data: any) {
-  // const { name, email } = await request;
+  const { username, email } = data;
 
-  const { username, email } = {
-    "username": "Murphy",
-    "email": "lanzejun@cn.ibm.com"
-  }
+  // const { username, email } = {
+  //   "username": "Murphy",
+  //   "email": "lanzejun@cn.ibm.com"
+  // }
 
   try {
     const { renderToString } = await import('react-dom/server');
