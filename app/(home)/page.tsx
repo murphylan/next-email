@@ -61,7 +61,7 @@ const HomePage = async () => {
       <span className="font-bold text-4xl">
         {user ?
           <Button className="mt-1" size="lg" asChild>
-            <Link href="/send">
+            <Link href="/dashboard">
               邀请你来体验
             </Link>
           </Button>
