@@ -1,10 +1,10 @@
 'use server';
 
-import NoticeEmail from "@/app/emails/notice";
 import nodemailer from 'nodemailer';
+import { render } from '@react-email/render';
+import NoticeEmail from '@/app/emails/notice';
 
 // Create a Nodemailer transporter
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 const transporter = nodemailer.createTransport({
   host: 'ap.relay.ibm.com',
   port: 25,
@@ -12,22 +12,26 @@ const transporter = nodemailer.createTransport({
 
 export async function sendMail(data: any) {
   const { username, email } = data;
-
-  // const { username, email } = {
-  //   "username": "Murphy",
-  //   "email": "lanzejun@cn.ibm.com"
-  // }
-
+  console.log(username, email);
   try {
-    const { renderToString } = await import('react-dom/server');
-    const htmlString = renderToString(NoticeEmail({
-      username,
-    }));
+    // const { renderToString } = await import('react-dom/server');
+    // const htmlString = renderToString(NoticeEmail({
+    //   username,
+    // }));
+
+    // const props = {
+    //   username: 'John Doe',
+    //   userImage: 'https://example.com/user-image.jpg',
+    //   invitedByUsername: 'Acme Corp',
+    // };
+
+    // https://react.email/docs/integrations/nodemailer
+    const htmlString = render(NoticeEmail({ username }));
 
     const mailOptions = {
       from: 'Murphy <lanzejun@cn.ibm.com>',
       to: email,
-      subject: 'Newsletter',
+      subject: 'Wholesale Newsletter',
       html: htmlString
     };
 

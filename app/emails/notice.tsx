@@ -18,11 +18,7 @@ interface NoticeEmailProps {
   invitedByUsername?: string;
 }
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : '';
-
-export const NoticeEmail = ({
+const NoticeEmail = ({
   username = 'Murphy',
   userImage = `https://lp2.email.ibm.com/rs/298-RSE-650/images/IBM_logo.png`,
   invitedByUsername = 'Wholesale',
