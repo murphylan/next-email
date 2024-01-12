@@ -3,6 +3,7 @@
 import nodemailer from 'nodemailer';
 import { render } from '@react-email/render';
 import NoticeEmail from '@/app/emails/notice';
+import NoticeWithBackgroudEmail from '@/app/emails/notice-backgroud';
 
 // Create a Nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -10,23 +11,19 @@ const transporter = nodemailer.createTransport({
   port: 25,
 });
 
-export async function sendMail(data: any) {
+const Components = {
+  notice: NoticeEmail,
+  noticeWithBackgroud: NoticeWithBackgroudEmail
+};
+
+const getComponentByKey = (key: string) => Components[key as keyof typeof Components];
+
+export async function sendMail(key: string, data: any) {
   const { username, email } = data;
   console.log(username, email);
   try {
-    // const { renderToString } = await import('react-dom/server');
-    // const htmlString = renderToString(NoticeEmail({
-    //   username,
-    // }));
-
-    // const props = {
-    //   username: 'John Doe',
-    //   userImage: 'https://example.com/user-image.jpg',
-    //   invitedByUsername: 'Acme Corp',
-    // };
-
     // https://react.email/docs/integrations/nodemailer
-    const htmlString = render(NoticeEmail({ username }));
+    const htmlString = render(getComponentByKey(key)({ username }));
 
     const mailOptions = {
       from: 'Murphy <lanzejun@cn.ibm.com>',

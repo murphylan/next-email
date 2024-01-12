@@ -112,7 +112,7 @@ export function AlbumArtwork({
               Make changes to your profile here. Click save when you're done.
             </DialogDescription>
           </DialogHeader>
-          <SendMailForm />
+          <SendMailForm template={album.template} />
         </DialogContent>
       </Dialog>
     </div>

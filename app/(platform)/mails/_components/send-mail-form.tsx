@@ -38,16 +38,14 @@ type SendMailFormValues = z.infer<typeof sendMailFormSchema>
 
 const defaultValues: Partial<SendMailFormValues> = {
   username: "Murphy",
-  email: "lanzejun@cn.ibm.com"
+  email: "lanzejun@cn.ibm.com",
 }
 
 interface SendMailFormProps {
-  username?: string;
-  email?: string;
-  className?: React.ComponentProps<"form">
+  template: string;
 }
 
-const SendMailForm = ({ username, email, className }: SendMailFormProps) => {
+const SendMailForm = ({ template }: SendMailFormProps) => {
 
   const form = useForm<SendMailFormValues>({
     resolver: zodResolver(sendMailFormSchema),
@@ -56,7 +54,7 @@ const SendMailForm = ({ username, email, className }: SendMailFormProps) => {
   })
 
   async function onSubmit(data: SendMailFormValues) {
-    await sendMail(data);
+    await sendMail(template, data);
     toast("You submitted the following values:", {
       description: <pre className="mt-2 w-[280px] rounded-md bg-slate-950 p-4">
         <code className="text-white">{JSON.stringify(data, null, 2)}</code>
