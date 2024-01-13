@@ -28,7 +28,7 @@ export const UserNav = ({ username, email, className }: UserNavProps) => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-9 w-9">
-            <AvatarImage src="/avatars/03.png" alt="@shadcn" />
+            <AvatarImage src="https://w3-unifiedprofile-api.dal1a.cirrus.ibm.com/v3/image/020729672?def=none&date=1705128707836" alt="@shadcn" />
             <AvatarFallback>SC</AvatarFallback>
           </Avatar>
         </Button>
