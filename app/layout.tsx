@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import './theme-config.css'
 import './globals.css'
 import '@radix-ui/themes/styles.css';
 import { Theme, ThemePanel } from '@radix-ui/themes';
@@ -7,7 +8,11 @@ import { Theme, ThemePanel } from '@radix-ui/themes';
 import { siteConfig } from '@/config/site'
 import { Toaster } from '@/components/ui/sonner';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -33,7 +38,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.variable}>
         <Theme appearance="light" grayColor="sand" radius="large" scaling="95%">
           {children}
           {/* <ThemePanel /> */}

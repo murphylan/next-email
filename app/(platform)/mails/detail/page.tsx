@@ -28,11 +28,11 @@ const MailDetailPage = () => {
         <Image
           src={imgsrc}
           alt=""
-          width={700}
-          height={1000}
+          width={500}
+          height={700}
           className={cn(
-            "h-auto w-auto object-cover transition-all hover:scale-105",
-            "aspect-square"
+            "object-cover transition-all hover:scale-105",
+            ""
           )}
         />
       </div>
